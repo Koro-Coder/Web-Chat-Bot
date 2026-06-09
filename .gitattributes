@@ -1,0 +1,30 @@
+# .gitattributes - repository line ending normalization and binary handling
+# Treat files detected as text as text and normalize in the repo (LF)
+* text=auto
+
+# Force LF for common source and documentation files so Windows checkouts keep LF
+*.java    text eol=lf
+*.xml     text eol=lf
+*.gradle  text eol=lf
+*.md      text eol=lf
+*.yml     text eol=lf
+*.yaml    text eol=lf
+*.properties text eol=lf
+*.txt     text eol=lf
+*.sh      text eol=lf
+
+# Keep Windows batch files as CRLF on checkout
+*.bat     text eol=crlf
+
+# Mark common binary files
+*.png     binary
+*.jpg     binary
+*.jpeg    binary
+*.gif     binary
+*.ico     binary
+*.jar     binary
+*.class   binary
+*.exe     binary
+
+# End of .gitattributes
+
