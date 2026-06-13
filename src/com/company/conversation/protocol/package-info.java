@@ -25,10 +25,15 @@
  * <strong>Events:</strong> ConversationEvent represents asynchronous or out-of-band
  * notifications about conversation state changes.
  * 
- * <strong>Errors:</strong> ErrorResponse provides structured error reporting with
- * HTTP-style status codes and application-specific error codes.
+ *  <strong>Errors:</strong> ErrorResponse provides structured error reporting with
+ *  HTTP-style status codes and application-specific error codes.
  * 
- * <h2>Design Principles</h2>
+ *  <strong>Execution Context:</strong> ConversationExecutionContext is a framework-managed
+ *  interface supplied to handlers containing sessions, attributes, and operational context.
+ *  This enables the framework to inject configuration, feature flags, and helper data without
+ *  requiring future changes to the handler interface.
+ * 
+ *  <h2>Design Principles</h2>
  * 
  * <ul>
  *   <li><strong>Immutability:</strong> All models are implemented as Java records (Java 21+),
