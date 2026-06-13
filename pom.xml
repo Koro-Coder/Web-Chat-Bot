@@ -38,6 +38,28 @@
             <optional>true</optional>
         </dependency>
 
+        <!-- Spring and logging dependencies required by framework sources -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>6.1.12</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>6.1.12</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-autoconfigure</artifactId>
+            <version>3.2.8</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>2.0.9</version>
+        </dependency>
+
         <!-- Optional: Lombok for testing utilities -->
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -48,6 +70,10 @@
     </dependencies>
 
     <build>
+        <!-- Use src/com as the main source root to avoid compiling the top-level module-info.java
+             which causes module-path behavior in this environment. The project's Java sources
+             are under src/com/company/... so this keeps the standard layout for compilation. -->
+        <sourceDirectory>src/com</sourceDirectory>
         <plugins>
             <!-- Java Compiler Plugin -->
             <plugin>
@@ -58,6 +84,8 @@
                     <source>21</source>
                     <target>21</target>
                     <release>21</release>
+                    <!-- compile on the classpath instead of module-path to avoid module visibility issues in this workspace -->
+                    <useModulePath>false</useModulePath>
                     <enablePreview>false</enablePreview>
                 </configuration>
             </plugin>

@@ -14,19 +14,33 @@ repositories {
 java {
     sourceCompatibility = JavaVersion.VERSION_21
     targetCompatibility = JavaVersion.VERSION_21
-    
     withSourcesJar()
     withJavadocJar()
+}
+
+// Use the same source layout as the previous Maven build (src/com)
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src/com']
+        }
+    }
 }
 
 dependencies {
     // JUnit 5 for testing
     testImplementation 'org.junit.jupiter:junit-jupiter:5.10.1'
-    
-    // Jackson for optional JSON support
+
+    // Jackson for optional JSON support (kept as implementation)
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.16.0'
-    
-    // Lombok for test utilities
+
+    // Spring and logging dependencies carried over from pom.xml
+    implementation 'org.springframework:spring-web:6.1.12'
+    implementation 'org.springframework:spring-webmvc:6.1.12'
+    implementation 'org.springframework.boot:spring-boot-autoconfigure:3.2.8'
+    implementation 'org.slf4j:slf4j-api:2.0.9'
+
+    // Lombok kept for tests
     testImplementation 'org.projectlombok:lombok:1.18.30'
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.30'
 }
@@ -35,19 +49,21 @@ tasks.test {
     useJUnitPlatform()
 }
 
+// Ensure the produced JAR has the same main class as the Maven build
 tasks.jar {
     manifest {
         attributes 'Main-Class': 'com.company.conversation.protocol.examples.ProtocolExamples'
     }
 }
 
+// Configure javadoc options similar to Maven plugin
 javadoc {
     options {
         addStringOption 'Xdoclint:all'
     }
 }
 
-// Run examples task
+// Run examples task (same as before)
 task runExamples(type: JavaExec) {
     group = 'application'
     description = 'Run protocol examples'

@@ -10,7 +10,7 @@ import java.util.Map;
  * attributes, feature flags, and other operational context without requiring future
  * changes to the handler signature.
  * 
- * The protocol layer treats this context as opaque — the framework defines what
+ * The protocol layer treats this context as opaque Ã¢â‚¬â€ the framework defines what
  * sessions and attributes it provides and manages their lifecycle.
  * 
  * @since 1.0.0
@@ -21,7 +21,7 @@ public interface ConversationExecutionContext {
      * Returns the client-side session associated with this conversation.
      * 
      * The session contains client state maintained across requests. The protocol
-     * never interprets or validates this state — it is entirely handler-managed.
+     * never interprets or validates this state Ã¢â‚¬â€ it is entirely handler-managed.
      * 
      * @return the client session for this conversation
      */
@@ -52,4 +52,5 @@ public interface ConversationExecutionContext {
      */
     Map<String, Object> attributes();
 }
+
 

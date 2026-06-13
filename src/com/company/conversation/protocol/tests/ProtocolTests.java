@@ -21,20 +21,20 @@ public class ProtocolTests {
     // Helper methods
     private static void assertEqual(Object expected, Object actual, String testName) {
         if (Objects.equals(expected, actual)) {
-            System.out.println("✓ PASS: " + testName);
+            System.out.println("Ã¢Å“â€œ PASS: " + testName);
             passCount++;
         } else {
-            System.out.println("✗ FAIL: " + testName + " (expected: " + expected + ", actual: " + actual + ")");
+            System.out.println("Ã¢Å“â€” FAIL: " + testName + " (expected: " + expected + ", actual: " + actual + ")");
             failCount++;
         }
     }
     
     private static void assertTrue(boolean condition, String testName) {
         if (condition) {
-            System.out.println("✓ PASS: " + testName);
+            System.out.println("Ã¢Å“â€œ PASS: " + testName);
             passCount++;
         } else {
-            System.out.println("✗ FAIL: " + testName);
+            System.out.println("Ã¢Å“â€” FAIL: " + testName);
             failCount++;
         }
     }
@@ -42,14 +42,14 @@ public class ProtocolTests {
     private static void assertThrows(Class<?> exceptionClass, String testName, Runnable test) {
         try {
             test.run();
-            System.out.println("✗ FAIL: " + testName + " (no exception thrown)");
+            System.out.println("Ã¢Å“â€” FAIL: " + testName + " (no exception thrown)");
             failCount++;
         } catch (Exception e) {
             if (exceptionClass.isInstance(e)) {
-                System.out.println("✓ PASS: " + testName);
+                System.out.println("Ã¢Å“â€œ PASS: " + testName);
                 passCount++;
             } else {
-                System.out.println("✗ FAIL: " + testName + " (wrong exception: " + e.getClass().getName() + ")");
+                System.out.println("Ã¢Å“â€” FAIL: " + testName + " (wrong exception: " + e.getClass().getName() + ")");
                 failCount++;
             }
         }
@@ -499,19 +499,19 @@ public class ProtocolTests {
             assertTrue(response.error().isEmpty(), "No error in successful response");
             assertEqual(request.requestId(), response.requestId(), "Request/Response linked");
             
-            System.out.println("✓ Complex scenario completed successfully");
+            System.out.println("Ã¢Å“â€œ Complex scenario completed successfully");
             passCount++;
         } catch (Exception e) {
-            System.out.println("✗ Complex scenario failed: " + e.getMessage());
+            System.out.println("Ã¢Å“â€” Complex scenario failed: " + e.getMessage());
             failCount++;
         }
     }
     
     // Main test runner
     public static void main(String[] args) {
-        System.out.println("╔════════════════════════════════════════════════════════════╗");
-        System.out.println("║   Enterprise Conversation Protocol - Test Suite           ║");
-        System.out.println("╚════════════════════════════════════════════════════════════╝");
+        System.out.println("Ã¢â€¢â€Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢â€”");
+        System.out.println("Ã¢â€¢â€˜   Enterprise Conversation Protocol - Test Suite           Ã¢â€¢â€˜");
+        System.out.println("Ã¢â€¢Å¡Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â");
         
         testActivityTypeEnum();
         testActivityValidation();
@@ -530,20 +530,21 @@ public class ProtocolTests {
         testComplexScenario();
         
         // Summary
-        System.out.println("\n╔════════════════════════════════════════════════════════════╗");
-        System.out.println("║   TEST SUMMARY                                             ║");
-        System.out.println("╠════════════════════════════════════════════════════════════╣");
-        System.out.println(String.format("║ ✓ Passed: %-46d ║", passCount));
-        System.out.println(String.format("║ ✗ Failed: %-46d ║", failCount));
-        System.out.println(String.format("║ Total:   %-46d ║", passCount + failCount));
-        System.out.println("╚════════════════════════════════════════════════════════════╝");
+        System.out.println("\nÃ¢â€¢â€Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢â€”");
+        System.out.println("Ã¢â€¢â€˜   TEST SUMMARY                                             Ã¢â€¢â€˜");
+        System.out.println("Ã¢â€¢Â Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â£");
+        System.out.println(String.format("Ã¢â€¢â€˜ Ã¢Å“â€œ Passed: %-46d Ã¢â€¢â€˜", passCount));
+        System.out.println(String.format("Ã¢â€¢â€˜ Ã¢Å“â€” Failed: %-46d Ã¢â€¢â€˜", failCount));
+        System.out.println(String.format("Ã¢â€¢â€˜ Total:   %-46d Ã¢â€¢â€˜", passCount + failCount));
+        System.out.println("Ã¢â€¢Å¡Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â");
         
         if (failCount == 0) {
-            System.out.println("\n✓ All tests passed!");
+            System.out.println("\nÃ¢Å“â€œ All tests passed!");
         } else {
-            System.out.println("\n✗ Some tests failed");
+            System.out.println("\nÃ¢Å“â€” Some tests failed");
         }
     }
 }
+
 
 
